@@ -20,8 +20,7 @@
 \titlespacing{\section}{0pt}{10pt}{10pt}
 
 %Bibliography setup
-\usepackage[backend=biber,
-style=alphabetic]{biblatex}
+\usepackage[backend=biber, style=authoryear]{biblatex}
 \addbibresource{references.bib}
 
 \title{\huge Galaxy Evolution \\ \Large Homework OOM Problem}
@@ -83,7 +82,7 @@ style=alphabetic]{biblatex}
 	
 	\noindent where $R_e$ is the effective radius of the UFD galaxy, and $\eta$ is a constant of order unity.\\
 	
-	I can now estimate the dispersion velocity of an UFD galaxy using (\ref{dispersionV}).  \cite{MBW} places the effective radius of UFDs at $R_e \approx 10pc$.  Also, given $M/L > 3000$ and $L_v \sim 300L_\odot$, I shall use a mass of $M_{vir} \approx 10^6M_\odot$.  Finally, setting $\eta = 1$, the dispersion velocity is
+	I can now estimate the dispersion velocity of an UFD galaxy using (\ref{dispersionV}).  places the effective radius of UFDs at $R_e \approx 10pc$.  Also, given $M/L > 3000$ and $L_v \sim 300L_\odot$, I shall use a mass of $M_{vir} \approx 10^6M_\odot$.  Finally, setting $\eta = 1$, the dispersion velocity is
 	\begin{equation} \label{dispersionSpeed}
 		\sigma_r \approx \sqrt{\frac{6.7 \times 10^{-8} cm^3g^{-1}s^{-2}\times 2 \times 10^6 \times 10^{33}g}{6 \times 10 \times 3 \times 10^{18}cm}} \approx 10^6cm/s = 1km/s
 	\end{equation}\\
@@ -118,7 +117,9 @@ style=alphabetic]{biblatex}
 	\section*{\textbf{Conclusion}}
 	Based on the dispersion velocity equation derived from the Virial theorem, I estimated the dispersion velocity of an Ultra Faint Dwarf galaxy (UFD) to be $\sigma_r \approx 1Km/s$. Using this estimate and the Hubble-Lema\^{i}tre constant, I estimated the minimum required distance between our UFD galaxy and any other galaxy (background star) to be $|d_{min}| \approx 50Kpc$.  This estimate turned out to be an order of magnitude larger than my initial guess of $\sim\!\!1Kpc$.\\
 	
-	I next set out to calculate an estimate of the average separation between galaxies in a rich galaxy cluster.  This estimate turned out to be $\sim\!\!300Kpc$ which is well above my estimated minimum required distance $|d_{min}|$. Therefore, I concluded that the method of measuring the red-shift difference between the stars within the UFD galaxy and those in the background is a reasonable method in grouping the UFD stars. \cite{SysArch}
+	I next set out to calculate an estimate of the average separation between galaxies in a rich galaxy cluster.  This estimate turned out to be $\sim\!\!300Kpc$ which is well above my estimated minimum required distance $|d_{min}|$. Therefore, I concluded that the method of measuring the red-shift difference between the stars within the UFD galaxy and those in the background is a reasonable method in grouping the UFD stars.
+	
+	(\cite{SysArch})	(\cite{ObEvo})	(\cite{EvoPl})	(\cite{RUWE}) (\cite{RUWE_Logan})
 	
 	\pagebreak
 	
