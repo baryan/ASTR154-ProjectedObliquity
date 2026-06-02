@@ -16,17 +16,18 @@
 \setlength\columnsep{20pt}
 \usepackage[margin={.75in,1.25in}]{geometry}
 
-% Section spacing setup
+% Section spacing and font setup
 \titlespacing{\section}{0pt}{10pt}{10pt}
+\titleformat*{\section}{\large\bfseries}
 
 %Bibliography setup
 \usepackage[backend=biber, style=authoryear]{biblatex}
 \addbibresource{references.bib}
 
-\title{\huge Galaxy Evolution \\ \Large Homework OOM Problem}
-\date{December 1, 2023}
+\title{\huge Planetary Obliquity and Stellar Structure \\ \Large ASTR-154 Final Project}
+\date{June 7, 2026}
 
-\author{Babak Aryan}
+\author{Babak Aryan\\Justin Kan}
 
 \newcommand{\fix}{\marginpar{FIX}}
 \newcommand{\new}{\marginpar{NEW}}
@@ -36,90 +37,27 @@
 \begin{document}
 	\maketitle
 
-	\section*{ \textbf{Questions}}
+	\section*{ \centering \textbf{ABSTRACT}}
 	
-	\begin{enumerate}[left=15pt, nosep]
-		\item Given that the recently discovered Ultra Faint Dwarf (UFD) galaxies have an $L_v \sim 300L_\odot$ and an $M/L > 3000$, what is the minimum required distance between an UFD galaxy and any other galaxy (background stars) in order to correctly identify the stars within the UDF relying only on the red-shift difference between the stars in the galaxy and the background stars.
-		\item Based on this minimum required distance, is red-shift difference measurement a reasonable method in identifying UFD galaxy stars?
-	\end{enumerate}
+	Planetary obliquity, a planet’s axial tilt with respect to its plane of orbit, is the primary driver of seasons and climate cycles for an earth-like planet. An obliquity close to $0^\circ$, for example, eliminates seasonal changes; locations closer to the equator remain hot, while the poles stay perpetually frozen. A large obliquity ($> \; \sim\!45^\circ$), on the other hand, creates large variations in climate across different altitudes on the planet resulting in the hemispheres cycling between very hot summers and brutally cold winters over an orbital year.	According to (\cite{Vervoort}), one important condition to increase the probability of “the habitability of Earth-like planets” is for the mean obliquity to be “sufficiently low to maintain temperate temperatures over large parts of its surface throughout the orbital year.”  Planetary obliquity, therefore, should be considered as one of the essential parameters when searching for habitable exoplanets. Recent space telescope missions such as Kepler/K2, Tess and CoRoT have contributed to the discovery of $\sim40,000$ exoplanets cataloged in NASA Exoplanet Archive. Obliquity data, however, is available for only a handful ($274$) of these planets. Therefore, an efficient search for "habitable" exoplanets necessitates a better understanding of planetary obliquity population in order to better identify suitable candidates. Recent research on the evolution of planetary obliquity has shown the effect of non-single ("binary") stellar host systems on mean equilibrium value ($\epsilon_m$) as well as long term variation ($\Delta\epsilon$) of planetary obliquity (\cite{Huang}), (\cite{Quarles}).	In this paper, we explore the planetary obliquity populations as a function of the planet's host system's "binarity"\footnote{Throughout this paper "binarity" refers to the condition of a system containing more than 1 host star.}. We show that obliquity population for planets in single stellar host systems differ from the population for those in "binary" systems. In order to divide our exoplanet sample set into those in single star systems vs. those in binary systems, we rely on the number of listed stars in the data set as well as the test statistics RUWE (Re-normalized Unit Weight Error) which is a strong indicator of the binarity of a system (\cite{RUWE_Ginard}), (\cite{RUWE_Logan}). We show that, given a grouping of exoplanets based on both the number of stars listed and the RUWE number, yields obliquity populations which are distinctly different with a $p$ value of $< .03$. Given the high correlation between RUWE and binarity,
+	
 
-	\subsection*{Initial Guess}
-	My initial guess for the minimum required distance is
-	\begin{equation} \label{initialGuess}
-		d_{min}\sim\! 1Kpc
-	\end{equation}
-	
-	\noindent And given that for a "rich cluster" of galaxies, as discussed in class, there are $\sim\!\! 30-300$ galaxies in a volume of $V \sim 2Mpc$, I believe a minimum required distance of $d\sim\! 1Kpc$ would make red-shift difference measurement a reasonable method for grouping UFD galaxy stars and separating them from the background stars.
-	
-	\section*{Solution}
-	Given the mass to luminosity ratio of $M/L > 3000$, UFD galaxies are completely dark matter dominated, and their kinematics is dispersion supported.  Therefore, I will use Virial theorem to determine the velocity dispersion of the stars within the galaxy.  I will then use this dispersion velocity to estimate how far the background stars need to be to differentiate them from the UFD galaxy's stars.
-	
-	\subsection*{Virial Theorem and Dispersion Velocity}
-	The general form of Virial theorem is given as
-	\begin{equation} \label{virial}
-		2\langle \mathcal{KE} \rangle - \mathcal{PE} = 0
-	\end{equation}
-	
-	\noindent Since UFD galaxies are dispersion supported, each star has its own unique orbit at different velocities.  Therefore, to find the total kinetic energy, we'd have to sum over the kinetic energies of all the stars in the system.
-	\begin{displaymath}
-		\langle \mathcal{KE} \rangle = \frac{1}{2} \sum_{\alpha} m_\alpha \langle \boldsymbol{v}_\alpha \cdot \boldsymbol{v}_\alpha \rangle
-	\end{displaymath}
-	
-	\noindent Assuming the motions are isotropic, $\langle \boldsymbol{v}_\alpha \cdot \boldsymbol{v}_\alpha \rangle = 3v_r^2$.  Additionally, we are interested in the internal motions of the stars, and therefore, subtracting the mean motion $\langle v_r\rangle$, we have
-	\begin{displaymath}
-		\langle \mathcal{KE} \rangle \sim \frac{3 \mathcal{M}_{vir} \left(v_r - \langle v_r\rangle \right)^2}{2} = \frac{3 \mathcal{M}_{vir} \sigma_r^2}{2}
-	\end{displaymath}
-	
-	\noindent The potential energy, on the other hand, due to gravity is given by
-	\begin{displaymath}
-		\mathcal{PE} = \frac{G \mathcal{M}_{vir}^2}{2 \eta R_e}
-	\end{displaymath}
-	
-	\noindent Combining these in (\ref{virial}), the dispersion velocity is given by
-	\begin{equation} \label{dispersionV}
-		\sigma_r \approx \sqrt{\frac{G\mathcal{M}_{vir}}{6\eta R_e}}
-	\end{equation}
-	
-	\noindent where $R_e$ is the effective radius of the UFD galaxy, and $\eta$ is a constant of order unity.\\
-	
-	I can now estimate the dispersion velocity of an UFD galaxy using (\ref{dispersionV}).  places the effective radius of UFDs at $R_e \approx 10pc$.  Also, given $M/L > 3000$ and $L_v \sim 300L_\odot$, I shall use a mass of $M_{vir} \approx 10^6M_\odot$.  Finally, setting $\eta = 1$, the dispersion velocity is
-	\begin{equation} \label{dispersionSpeed}
-		\sigma_r \approx \sqrt{\frac{6.7 \times 10^{-8} cm^3g^{-1}s^{-2}\times 2 \times 10^6 \times 10^{33}g}{6 \times 10 \times 3 \times 10^{18}cm}} \approx 10^6cm/s = 1km/s
-	\end{equation}\\
-	
-	According to (\ref{dispersionSpeed}), the dispersion velocity observed from UFD galaxies will be in the order of $1km/s$.  Therefore, at $3\sigma_r$ the observed $H_\alpha$ spectral line from a UDF galaxy would have a half width of
-	\begin{displaymath}
-		\Delta \lambda_{3\sigma_r} \approx \frac{3\sigma_r}{c} \lambda_o = \frac{3 \times 10^6cm/s}{3 \times 10^{10}cm/s} 6500\AA \approx 0.65\AA
-	\end{displaymath}
-	
-	\noindent Therefore, any observed red-shift from a background star would have to be more than $\pm0.65\AA$ shifted with respect to the red-shift observed from the UDF galaxy.  This is the criterion that I will use next to estimate the minimum required distance from any other galaxy (background star) in order for it to not be grouped with the UDF galaxy. 
-	
-	\subsection*{Red-shift and the Hubble-Lema\^{i}tre Law}
-	As stated in the last paragraph, for any background star to not be included in our UDF galaxy, its relative red-shift to our galaxy would need to be larger than $\pm0.65\AA$.  This red-shift, however, corresponds to a relative expansion velocity difference of $\pm3\sigma_r \approx \pm3km/s$.  Using the Hubble-Lema\^{i}tre constant of $H_o \approx 73km\,s^{-1}Mpc^{-1}$, the minimum distance of any background star to our galaxy would have to be
-	\begin{equation} \label{minD}
-		\begin{split}
-			|d_{min}| &\approx \frac{3\sigma_r}{75km,s^{-1}Mpc^{-1}} \approx 0.05Mpc \Rightarrow &\\
-			|d_{min}| &\approx 50Kpc &\\
-		\end{split}
-	\end{equation}
-	
-	\noindent Therefore, my estimate of the required minimum distance between our UFD galaxy and any other galaxy (background star) is $\sim 50Kpc$.  This estimate is an order of magnitude larger than my initial guess of $\sim1Kpc$ in (\ref{initialGuess}).
-	
-	\subsection*{Reasonableness of the Red-shift Difference Measurement Effort}
-	The second item that I wanted to investigate is whether the red-shift difference measurement method is a reasonable way of grouping UFD galaxy stars.  Given that, according to our class discussions, a rich galaxy cluster might contain $\sim 30-300$ galaxies in a volume of $\sim (2Mpc)^3$, the average volume per galaxy for a rich cluster with $\sim300$ galaxies is
-	\begin{displaymath}
-		\langle V (per galaxy)\rangle \approx \frac{8 \times 10^{18}pc^3}{300} \approx 2.7\times 10^{16}pc^3 = \left(300 Kpc\right)^3
-	\end{displaymath}\\
-	
-	Therefore, given that the required minimum separation distance between our UFD galaxy and any other galaxy (background stars) was estimated to be $|d_{min}| \approx 50Kpc$ in (\ref{minD}) and that the average distance between galaxies in a rich cluster is $\sim\!\!300Kpc$, the red-shift difference measurement method seems to be a reasonable technique for identifying and grouping stars that belong to our UFD galaxy of interest.  
-	
-	
-	\section*{\textbf{Conclusion}}
-	Based on the dispersion velocity equation derived from the Virial theorem, I estimated the dispersion velocity of an Ultra Faint Dwarf galaxy (UFD) to be $\sigma_r \approx 1Km/s$. Using this estimate and the Hubble-Lema\^{i}tre constant, I estimated the minimum required distance between our UFD galaxy and any other galaxy (background star) to be $|d_{min}| \approx 50Kpc$.  This estimate turned out to be an order of magnitude larger than my initial guess of $\sim\!\!1Kpc$.\\
-	
-	I next set out to calculate an estimate of the average separation between galaxies in a rich galaxy cluster.  This estimate turned out to be $\sim\!\!300Kpc$ which is well above my estimated minimum required distance $|d_{min}|$. Therefore, I concluded that the method of measuring the red-shift difference between the stars within the UFD galaxy and those in the background is a reasonable method in grouping the UFD stars.
-	
-	(\cite{SysArch})	(\cite{ObEvo})	(\cite{EvoPl})	(\cite{RUWE}) (\cite{RUWE_Logan})
+	\begin{multicols}{2}
+		\section*{Motivation}
+		What question(s) is your project attempting to answer, and why is this important to physics or astronomy? Give enough background that a nonspecialist can understand the motivation.
+		
+		\section*{Data}
+		Describe the data set you used. Where did it come from and how was it obtained? What telescopes/instruments/software were used?
+		
+		\section*{Methods}
+		Describe your analysis procedure. Why did you choose the techniques you used? If you used a technique beyond what we learned this quarter, teach it to the class. If there were other techniques you considered but chose not to use, explain why. 
+		
+		\section*{Results}
+		What did you learn by applying your methods to your data? How does this help you answer the question(s) posed in the motivation? Include a discussion of the uncertainty or statistical significance of your results.
+		
+		\section*{Next Steps}
+		If you were to continue along this line of research, how could you expand on your project to answer the question(s) better or to answer related questions? What data and techniques would you need? If your project didn't work out as expected, what do you think went wrong, and how could you improve?
+	\end{multicols}
 	
 	\pagebreak
 	
